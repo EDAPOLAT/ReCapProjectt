@@ -9,21 +9,42 @@ namespace ConsoleUI
         class Program
         {
             static void Main(string[] args)
-            {
-
+        {
+            // UserTest(); 
             // CarTest();
-            //BrandTest();
-            RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            
-            Console.WriteLine(rentalManager.Add(new Rental { CarId = 1, CustomerId = 2, RentDate = DateTime.Now }).Message);
-
-             
-
+            //BrandTest(); 
+            //CustomerTest();
+           // RentalTest();
         }
 
-            private static void BrandTest()
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(new Rental { CarId = 2, CustomerId =1, RentDate = DateTime.Now ,ReturnDate=new DateTime(2021,3,1 )});
+            Console.WriteLine(rentalManager.GetALL().Success);
+        }
+
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer { UserId = 2, CompanyName = "bilsoft" });
+            Console.WriteLine(customerManager.GetAll().Success);
+        }
+
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            userManager.Add(new User { FirstName = "EDA", LastName = "POLAT", Email = "edaaypolat@gmail.com", Password = "XYZ" });
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine(user.FirstName + "" + user.LastName);
+            }
+        }
+
+        private static void BrandTest()
             {
                 BrandManager brandManager = new BrandManager(new EfBrandDal());
+            brandManager.Add(new Brand { BrandName = "Yeşil" });
                 foreach (var brand in brandManager.GetAll().Data)
                 {
                     Console.WriteLine(brand.BrandName);
@@ -32,11 +53,21 @@ namespace ConsoleUI
 
             private static void CarTest()
             {
-                CarManager carManager = new CarManager(new EfCarDal());
-                foreach (var car in carManager.GetCarDetails().Data)
+                CarManager carManager = new CarManager(new EfCarDal());  
+                carManager.Add(new Car
                 {
-                    Console.WriteLine(car.CarName + "/" + car.BrandName);
-                }
+                        BrandId = 6,
+                        ColorId = 4,
+                        CarName = "KIA",
+                        DailyPrice = 800,
+                        ModelYear = "2021",
+                        Description = "Otomatik vites"
+
+            });
+            foreach (var car in carManager.GetCarDetails().Data)
+            {
+                Console.WriteLine(car.CarName);
             }
         }
+    }
 }

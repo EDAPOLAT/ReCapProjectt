@@ -16,11 +16,11 @@ namespace DataAccess.Concrete.InMemory
         public InMemoryCarDal()
         {
             _cars = new List<Car> {
-            new Car{  CarId=1, CarName="BMW",BrandId=1,ColorId=1,ModelYear="1994",DailyPrice=1000000, Description="Manüel vites" },
-            new Car{  CarId=2, CarName="RENAULT",BrandId=2,ColorId=2,ModelYear="2000",DailyPrice=500000, Description="Otomatik vites" },
-            new Car{  CarId=3,CarName="PEUGEOT",BrandId=3,ColorId=3,ModelYear="1987",DailyPrice=3000000, Description="Manüel vites" },
-            new Car{  CarId=4,CarName="VOLKSWAGEN",BrandId=4,ColorId=4,ModelYear="2021",DailyPrice=2500000, Description="Otomatik vites " },
-            new Car{  CarId=5,CarName="CHEVROLET",BrandId=5,ColorId=5,ModelYear="2021",DailyPrice=6000000, Description="Otomatik vites" },
+            new Car{  CarId=1, CarName="BMW Z4 ROASTER",BrandId=1,ColorId=1,ModelYear="1994",DailyPrice=1000, Description="Manüel vites" },
+            new Car{  CarId=2, CarName="RENAULT MEGANE",BrandId=2,ColorId=2,ModelYear="2000",DailyPrice=500,Description="Otomatik vites" },
+            new Car{  CarId=3,CarName="PEUGEOT BİPPER",BrandId=3,ColorId=3,ModelYear="2009",DailyPrice=300, Description="Manüel vites" },
+            new Car{  CarId=4,CarName="VOLKSWAGEN CADDY",BrandId=4,ColorId=4,ModelYear="2021",DailyPrice=250, Description="Otomatik vites " },
+            new Car{  CarId=5,CarName="CHEVROLET GOLF",BrandId=5,ColorId=5,ModelYear="2021",DailyPrice=600, Description="Otomatik vites" },
 
 
             };
