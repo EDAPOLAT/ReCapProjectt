@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Core.Entities.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
@@ -21,7 +22,7 @@ namespace ConsoleUI
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             rentalManager.Add(new Rental { CarId = 2, CustomerId =1, RentDate = DateTime.Now ,ReturnDate=new DateTime(2021,3,1 )});
-            Console.WriteLine(rentalManager.GetALL().Success);
+            Console.WriteLine(rentalManager.GetAll().Data);
         }
 
         private static void CustomerTest()
@@ -31,15 +32,15 @@ namespace ConsoleUI
             Console.WriteLine(customerManager.GetAll().Success);
         }
 
-        private static void UserTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            userManager.Add(new User { FirstName = "EDA", LastName = "POLAT", Email = "edaaypolat@gmail.com", Password = "XYZ" });
-            foreach (var user in userManager.GetAll().Data)
-            {
-                Console.WriteLine(user.FirstName + "" + user.LastName);
-            }
-        }
+        //private static void UserTest()
+        //{
+        //    UserManager userManager = new UserManager(new EfUserDal());
+        //    userManager.Add(new User { FirstName = "EDA", LastName = "POLAT", Email = "edaaypolat@gmail.com", Password = "XYZ" });
+        //    foreach (var user in userManager.GetAll().Data)
+        //    {
+        //        Console.WriteLine(user.FirstName + "" + user.LastName);
+        //    }
+        //}
 
         private static void BrandTest()
             {
