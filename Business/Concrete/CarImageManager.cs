@@ -55,7 +55,7 @@ namespace Business.Concrete
             return new SuccessDataResult<CarImage>(_carImageDal.Get(c=>c.CarImageId==carImageId));
         }
 
-        public IDataResult<List<CarImage>> GetImagesByCarId(int carImageId)
+        public IDataResult<List<CarImage>> GetImagesCarId(int carImageId)
         {
             return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(carImageId));
         }
@@ -87,6 +87,11 @@ namespace Business.Concrete
                 return new List<CarImage> { new CarImage { CarId = carImageId, ImagePath = path, Date = DateTime.Now } };
             }
             return _carImageDal.GetAll(p => p.CarId == carImageId);
+        }
+
+        public IDataResult<List<CarImage>> GetImagesByCarId(int carId)
+        {
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c=>c.CarId==carId));
         }
     }
 }

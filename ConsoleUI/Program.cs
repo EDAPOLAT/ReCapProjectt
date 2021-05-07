@@ -65,7 +65,7 @@ namespace ConsoleUI
                         Description = "Otomatik vites"
 
             });
-            foreach (var car in carManager.GetCarDetails().Data)
+            foreach (var car in carManager.GetCarDetails().Data) 
             {
                 Console.WriteLine(car.CarName);
             }
